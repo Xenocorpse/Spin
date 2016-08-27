@@ -4,7 +4,17 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_intro</sound>
+    <sound>sound\snd_intro_music</sound>
+    <sound>sound\snd_intro_music_fade_in</sound>
+    <sound>sound\snd_track_1_high</sound>
+    <sound>sound\snd_track_1_low</sound>
+    <sound>sound\snd_track_1_mid</sound>
+    <sound>sound\snd_track_1_snare</sound>
+    <sound>sound\snd_track_1</sound>
+    <sound>sound\snd_track_2</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_record</sprite>
     <sprite>sprites\spr_outer</sprite>
@@ -19,6 +29,7 @@
     <object>objects\par_solid</object>
     <object>objects\obj_ball</object>
     <object>objects\obj_map</object>
+    <object>objects\obj_music</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
