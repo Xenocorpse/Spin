@@ -13,6 +13,10 @@
     <sound>sound\snd_track_1_mid</sound>
     <sound>sound\snd_track_1_snare</sound>
     <sound>sound\snd_track_1</sound>
+    <sound>sound\snd_track_2_guitar_2</sound>
+    <sound>sound\snd_track_2_guitar_1</sound>
+    <sound>sound\snd_track_2_drums</sound>
+    <sound>sound\snd_track_2_bass</sound>
     <sound>sound\snd_track_2</sound>
   </sounds>
   <sprites name="sprites">

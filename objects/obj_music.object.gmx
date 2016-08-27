@@ -108,7 +108,7 @@ if(!audio_is_playing(intro_fade_in_index) &amp;&amp; (intro == 1))
 }
 */
 
-if((collected == 1) &amp;&amp; (high_playing == 0))
+if((global.collected[0] == 1) &amp;&amp; (high_playing == 0))
 {
     snd_track_1_high_index = audio_play_sound(snd_track_1_high, 4, true);
     audio_sound_set_track_position(snd_track_1_high_index, audio_sound_get_track_position(snd_track_1_snare_index));
