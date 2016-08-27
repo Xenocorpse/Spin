@@ -68,6 +68,14 @@ key_down = keyboard_check(vk_down);
 vmove = key_up + key_down;
 vsp = vmove * spd;
 //hsp = move * spd;
+
+//for the map
+obj_map.x = obj_map.startX;
+obj_map.y = obj_map.startY;
+obj_map.key_left = keyboard_check(vk_left);
+obj_map.key_right = -keyboard_check(vk_right);
+obj_map.move = obj_map.key_left + obj_map.key_right;
+obj_map.rsp = obj_map.spd * obj_map.move;
 </string>
           </argument>
         </arguments>
@@ -89,27 +97,30 @@ vsp = vmove * spd;
           <argument>
             <kind>1</kind>
             <string>///Collisions
-//Horizontal
-if (place_meeting(x+hsp,y,par_solid)) {
-    while (!place_meeting(x+sign(hsp),y,par_solid)) {
-        x+=sign(hsp);
-    }
-    
-    hsp = 0;
-}
-
-x+=hsp;
-
 //Vertical
-if (place_meeting(x,y+vsp,obj_map)) {
-    while (!place_meeting(x,y+sign(vsp),obj_map)) {
-        y+=sign(vsp);
+
+if (place_meeting(x,y+vsp+(sign(vsp) * 3),obj_map)) {
+    while (!place_meeting(x,y+(3 * sign(vsp)),obj_map)) {
+        y+=(3 * sign(vsp));
     }
     
     vsp = 0;
 }
 
 y+=vsp;
+
+rsp_mult = 3;
+if (place_meeting(x+(sign(obj_map.rsp) * rsp_mult),y,obj_map))
+{
+    while (!place_meeting(x+(sign(obj_map.rsp) * rsp_mult),y,obj_map))
+    {
+        obj_map.image_angle += sign(obj_map.rsp) * rsp_mult;
+    }
+    
+    obj_map.rsp = 0;
+}
+
+obj_map.image_angle+=obj_map.rsp;
 </string>
           </argument>
         </arguments>

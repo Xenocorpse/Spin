@@ -10,13 +10,13 @@
     <sprite>sprites\spr_outer</sprite>
     <sprite>sprites\spr_ball</sprite>
     <sprite>sprites\spr_map</sprite>
+    <sprite>sprites\spr_map_01</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\obj_record</object>
     <object>objects\par_solid</object>
-    <object>objects\obj_outer</object>
     <object>objects\obj_ball</object>
     <object>objects\obj_map</object>
   </objects>
