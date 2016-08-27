@@ -3,8 +3,8 @@
   <spriteName>spr_ball</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
-  <persistent>0</persistent>
+  <depth>-999</depth>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -27,11 +27,11 @@
             <kind>1</kind>
             <string>///Initialize Variables
 
-depth = -1;
 key_left = 0;
 key_right = 0;
 key_up = 0;
 key_down = 0;
+key_flip = 0;
 vmove = 0;
 vsp = 0;
 move = 0;
@@ -60,22 +60,16 @@ spd = 8;
           <argument>
             <kind>1</kind>
             <string>///Setup Input
-//key_left = -keyboard_check(vk_left);
-//key_right = keyboard_check(vk_right);
+key_left = -keyboard_check(vk_left);
+key_right = keyboard_check(vk_right);
 key_up = -keyboard_check(vk_up);
 key_down = keyboard_check(vk_down);
-//move = key_left + key_right;
+move = key_left + key_right;
 vmove = key_up + key_down;
 vsp = vmove * spd;
-//hsp = move * spd;
 
-//for the map
-obj_map.x = obj_map.startX;
-obj_map.y = obj_map.startY;
-obj_map.key_left = keyboard_check(vk_left);
-obj_map.key_right = -keyboard_check(vk_right);
-obj_map.move = obj_map.key_left + obj_map.key_right;
-obj_map.rsp = obj_map.spd * obj_map.move;
+key_flip = keyboard_check(vk_space);
+move = key_left + key_right;
 </string>
           </argument>
         </arguments>
@@ -99,8 +93,8 @@ obj_map.rsp = obj_map.spd * obj_map.move;
             <string>///Collisions
 //Vertical
 
-if (place_meeting(x,y+vsp+(sign(vsp) * 3),obj_map)) {
-    while (!place_meeting(x,y+(3 * sign(vsp)),obj_map)) {
+if (place_meeting(x,y+vsp+(sign(vsp) * 3),obj_map_01)) {
+    while (!place_meeting(x,y+(3 * sign(vsp)),obj_map_01)) {
         y+=(3 * sign(vsp));
     }
     
@@ -110,17 +104,84 @@ if (place_meeting(x,y+vsp+(sign(vsp) * 3),obj_map)) {
 y+=vsp;
 
 rsp_mult = 3;
-if (place_meeting(x+(sign(obj_map.rsp) * rsp_mult),y,obj_map))
-{
-    while (!place_meeting(x+(sign(obj_map.rsp) * rsp_mult),y,obj_map))
+
+//Circular Collide
+if (room == rm_lvl_01 &amp;&amp; instance_exists(obj_map_01)) {
+
+    obj_map_01.rsp = move * obj_map_01.spd;
+
+    if (place_meeting(x+(sign(obj_map_01.rsp) * rsp_mult),y,obj_map_01))
     {
-        obj_map.image_angle += sign(obj_map.rsp) * rsp_mult;
-    }
+        while (!place_meeting(x+(sign(obj_map_01.rsp) * rsp_mult),y,obj_map_01))
+        {
+            obj_map_01.image_angle += sign(obj_map_01.rsp) * rsp_mult;
+        }
     
-    obj_map.rsp = 0;
+        obj_map_01.rsp = 0;
+    }
+
+obj_map_01.image_angle+=obj_map_01.rsp;
 }
 
-obj_map.image_angle+=obj_map.rsp;
+//Flip Collide
+if (room == rm_lvl_01_back &amp;&amp; instance_exists(obj_map_01_back)) {
+
+    obj_map_01_back.rsp = move * obj_map_01_back.spd;
+
+    if (place_meeting(x+(sign(obj_map_01_back.rsp) * rsp_mult),y,obj_map_01_back))
+    {
+        while (!place_meeting(x+(sign(obj_map_01_back.rsp) * rsp_mult),y,obj_map_01_back))
+        {
+            obj_map_01_back.image_angle += sign(obj_map_01_back.rsp) * rsp_mult;
+        }
+    
+        obj_map_01_back.rsp = 0;
+    }
+
+obj_map_01_back.image_angle+=obj_map_01_back.rsp;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Flip Disc
+
+if (key_flip &amp;&amp; room == rm_lvl_01) {
+    with (obj_map_01) instance_destroy();
+    with (obj_collect_high) instance_destroy();
+    with (obj_record) sprite_index = spr_record_flip;
+    obj_record.rsp = 0;
+}
+
+if (obj_record.image_index == 8 &amp;&amp; obj_record.sprite_index == spr_record_flip &amp;&amp; room == rm_lvl_01)
+{
+    room_goto(rm_lvl_01_back);
+}
+
+if (key_flip &amp;&amp; room == rm_lvl_01_back) {
+    with (obj_map_01_back) instance_destroy();
+    with (obj_record) sprite_index = spr_record_flip;
+    obj_record.rsp = 0;
+}
+if (obj_record.image_index == 8 &amp;&amp; obj_record.sprite_index == spr_record_flip &amp;&amp; room == rm_lvl_01_back) {
+    room_goto(rm_lvl_01);
+}
 </string>
           </argument>
         </arguments>

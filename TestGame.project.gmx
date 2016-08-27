@@ -16,23 +16,38 @@
     <sound>sound\snd_track_2</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\spr_record</sprite>
-    <sprite>sprites\spr_outer</sprite>
     <sprite>sprites\spr_ball</sprite>
-    <sprite>sprites\spr_map</sprite>
-    <sprite>sprites\spr_map_01</sprite>
+    <sprites name="Record and Maps">
+      <sprite>sprites\spr_map</sprite>
+      <sprite>sprites\spr_map_01_back</sprite>
+      <sprite>sprites\spr_map_01</sprite>
+      <sprite>sprites\spr_lvl_01_flip</sprite>
+      <sprite>sprites\spr_outer</sprite>
+      <sprite>sprites\spr_record</sprite>
+      <sprite>sprites\spr_record_flip</sprite>
+    </sprites>
+    <sprites name="Collectables">
+      <sprite>sprites\spr_collect_01_01</sprite>
+    </sprites>
+    <sprite>sprites\spr_flip</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_lvl</background>
+  </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\obj_record</object>
     <object>objects\par_solid</object>
     <object>objects\obj_ball</object>
-    <object>objects\obj_map</object>
+    <object>objects\obj_map_01</object>
     <object>objects\obj_music</object>
+    <object>objects\obj_collect_high</object>
+    <object>objects\obj_map_01_back</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_test</room>
+    <room>rooms\music</room>
+    <room>rooms\rm_lvl_01</room>
+    <room>rooms\rm_lvl_01_back</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

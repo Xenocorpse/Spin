@@ -3,14 +3,14 @@
   <type>0</type>
   <xorig>300</xorig>
   <yorigin>300</yorigin>
-  <colkind>1</colkind>
+  <colkind>0</colkind>
   <coltolerance>0</coltolerance>
-  <sepmasks>0</sepmasks>
+  <sepmasks>-1</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>21</bbox_left>
-  <bbox_right>578</bbox_right>
-  <bbox_top>21</bbox_top>
-  <bbox_bottom>578</bbox_bottom>
+  <bbox_left>191</bbox_left>
+  <bbox_right>417</bbox_right>
+  <bbox_top>222</bbox_top>
+  <bbox_bottom>403</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -20,6 +20,6 @@
   <width>600</width>
   <height>600</height>
   <frames>
-    <frame index="0">images\spr_record_0.png</frame>
+    <frame index="0">images\spr_lvl_01_flip_0.png</frame>
   </frames>
 </sprite>
