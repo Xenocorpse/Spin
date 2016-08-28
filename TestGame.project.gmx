@@ -18,6 +18,7 @@
     <sound>sound\snd_track_2_drums</sound>
     <sound>sound\snd_track_2_bass</sound>
     <sound>sound\snd_track_2</sound>
+    <sound>sound\snd_lvl_complete</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_ball</sprite>
@@ -57,6 +58,8 @@
       <sprite>sprites\spr_play_hov</sprite>
       <sprite>sprites\spr_back</sprite>
       <sprite>sprites\spr_back_hov</sprite>
+      <sprite>sprites\spr_track_2</sprite>
+      <sprite>sprites\spr_track_2_hov</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -87,6 +90,7 @@
       <object>objects\obj_back</object>
       <object>objects\obj_credits_menu</object>
       <object>objects\obj_track_1</object>
+      <object>objects\obj_track_2</object>
       <object>objects\obj_title</object>
       <object>objects\obj_play</object>
       <object>objects\obj_levels</object>

@@ -75,6 +75,14 @@
 global.snd_track_layer_0_index = audio_play_sound(snd_track_1_snare, 1, true);
 global.menu_playing = 0;
 global.playing = 0;
+global.collected[0] = 0;
+global.collected[1] = 0;
+global.collected[2] = 0;
+global.collected[3] = 0;
+
+global.move = true;
+
+global.rotation = 0;
 
 room_goto(rm_lvl_01);
 </string>

@@ -85,6 +85,11 @@ global.collected[0] = 0;
 global.collected[1] = 0;
 global.collected[2] = 0;
 global.collected[3] = 0;
+global.collected[4] = 0;
+global.collected[5] = 0;
+global.collected[6] = 0;
+
+global.move = true;
 </string>
           </argument>
         </arguments>
@@ -137,23 +142,30 @@ else
     
     if((global.collected[0] == 1) &amp;&amp; (global.playing == 1))
     {
-        global.snd_track_layer_1_index = audio_play_sound(snd_track_1_high, 2, true);
+        global.snd_track_layer_1_index = audio_play_sound(snd_track_1_high, 1, true);
         audio_sound_set_track_position(global.snd_track_layer_1_index, audio_sound_get_track_position(global.snd_track_layer_0_index));
         global.playing = 2;
     }
     
     if((global.collected[0] == 2) &amp;&amp; (global.playing == 1))
     {
-        global.snd_track_layer_2_index = audio_play_sound(snd_track_1_mid, 2, true);
+        global.snd_track_layer_2_index = audio_play_sound(snd_track_1_mid, 1, true);
         audio_sound_set_track_position(global.snd_track_layer_2_index, audio_sound_get_track_position(global.snd_track_layer_0_index));
         global.playing = 2;
     }
     
     if((global.collected[0] == 3) &amp;&amp; (global.playing == 1))
     {
-        global.snd_track_layer_3_index = audio_play_sound(snd_track_1_low, 2, true);
+        global.snd_track_layer_3_index = audio_play_sound(snd_track_1_low, 1, true);
         audio_sound_set_track_position(global.snd_track_layer_3_index, audio_sound_get_track_position(global.snd_track_layer_0_index));
         global.playing = 2;
+    }
+    
+    if(global.collected[1] == 1 &amp;&amp; global.collected[2] == 1 &amp;&amp; global.collected[3] == 1 &amp;&amp; global.playing != 3)
+    {
+        audio_play_sound(snd_lvl_complete, 1, false);
+        global.move = false;
+        global.playing = 3;
     }
 }
 

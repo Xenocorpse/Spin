@@ -65,16 +65,20 @@ spd = 8;
 
 
 ///Setup Input
-key_left = -keyboard_check(vk_left);
-key_right = keyboard_check(vk_right);
-key_up = -keyboard_check(vk_up);
-key_down = keyboard_check(vk_down);
-move = key_left + key_right;
-vmove = key_up + key_down;
-vsp = vmove * spd;
 
-key_flip = keyboard_check(vk_space);
-move = key_left + key_right;
+if(global.move)
+{
+    key_left = -keyboard_check(vk_left);
+    key_right = keyboard_check(vk_right);
+    key_up = -keyboard_check(vk_up);
+    key_down = keyboard_check(vk_down);
+    move = key_left + key_right;
+    vmove = key_up + key_down;
+    vsp = vmove * spd;
+    
+    key_flip = keyboard_check(vk_space);
+    move = key_left + key_right;
+}
 </string>
           </argument>
         </arguments>

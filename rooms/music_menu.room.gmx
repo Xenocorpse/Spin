@@ -53,6 +53,7 @@
   <instances>
     <instance objName="obj_track_1" x="480" y="352" name="inst_98A0FA92" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_back" x="960" y="608" name="inst_98DCBB49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_track_2" x="480" y="384" name="inst_1BFF69D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
