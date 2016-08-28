@@ -32,6 +32,12 @@
         <sprite>sprites\spr_map_01_back_flip</sprite>
         <sprite>sprites\spr_map_01_back</sprite>
       </sprites>
+      <sprites name="Level2">
+        <sprite>sprites\spr_map_02</sprite>
+        <sprite>sprites\spr_map_02_flip</sprite>
+        <sprite>sprites\spr_map_02_back</sprite>
+        <sprite>sprites\spr_map_02_back_flip</sprite>
+      </sprites>
     </sprites>
     <sprites name="Collectables">
       <sprites name="Level1">
@@ -84,6 +90,9 @@
         <object>objects\obj_collect_01_mid</object>
         <object>objects\obj_collect_01_low</object>
       </objects>
+      <objects name="Level2">
+        <object>objects\obj_map_02</object>
+      </objects>
     </objects>
     <objects name="Menu">
       <object>objects\obj_music_menu</object>
@@ -102,11 +111,17 @@
   <rooms name="rooms">
     <room>rooms\music</room>
     <room>rooms\menu</room>
-    <room>rooms\rm_lvl_01</room>
-    <room>rooms\rm_lvl_01_back</room>
     <room>rooms\credits</room>
     <room>rooms\levels</room>
     <room>rooms\music_menu</room>
+    <rooms name="Level1">
+      <room>rooms\rm_lvl_01_back</room>
+      <room>rooms\rm_lvl_01</room>
+    </rooms>
+    <rooms name="Level2">
+      <room>rooms\rm_lvl_02_front</room>
+      <room>rooms\rm_lvl_02_back</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
