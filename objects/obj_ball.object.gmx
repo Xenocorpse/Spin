@@ -59,7 +59,12 @@ spd = 8;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Setup Input
+            <string>if (room == menu) {
+    instance_destroy();
+}
+
+
+///Setup Input
 key_left = -keyboard_check(vk_left);
 key_right = keyboard_check(vk_right);
 key_up = -keyboard_check(vk_up);
@@ -163,6 +168,9 @@ obj_map_01_back.image_angle+=obj_map_01_back.rsp;
             <string>///Flip Disc
 
 if (key_flip &amp;&amp; room == rm_lvl_01 &amp;&amp; place_meeting(x,y,obj_flip_map_01_front)) {
+    if (obj_record.sprite_index == spr_record_flip) {
+        vsp = 0;
+    }
     with (obj_map_01) instance_destroy();
     with (obj_collect_high) instance_destroy();
     with (obj_collect_01_mid) instance_destroy();
@@ -178,6 +186,9 @@ if (obj_record.image_index == 8 &amp;&amp; obj_record.sprite_index == spr_record
 }
 
 if (key_flip &amp;&amp; room == rm_lvl_01_back &amp;&amp; place_meeting(x,y,obj_flip_map_01_back)) {
+    if (obj_record.sprite_index == spr_record_flip) {
+        vsp = 0;
+    }
     with (obj_map_01_back) instance_destroy();
     with (obj_flip_map_01_back) instance_destroy();
     with (obj_record) sprite_index = spr_record_flip;

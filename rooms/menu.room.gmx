@@ -8,7 +8,7 @@
   <isometric>0</isometric>
   <speed>40</speed>
   <persistent>0</persistent>
-  <colour>12632256</colour>
+  <colour>8049505</colour>
   <showcolour>-1</showcolour>
   <code></code>
   <enableViews>0</enableViews>
@@ -57,6 +57,7 @@
     <instance objName="obj_music_menu" x="608" y="448" name="inst_BD7C653C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_credits" x="608" y="480" name="inst_BC9471F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_quit" x="608" y="512" name="inst_5EE7972E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_escape" x="0" y="0" name="inst_AA5B9432" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
