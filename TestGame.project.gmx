@@ -30,6 +30,7 @@
       <sprite>sprites\spr_collect_01_01</sprite>
     </sprites>
     <sprite>sprites\spr_flip</sprite>
+    <sprite>sprites\spr_logo_pulse</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_lvl</background>
