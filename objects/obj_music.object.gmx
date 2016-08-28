@@ -54,6 +54,10 @@ intro = 0;
 
 high_playing = 0;
 
+global.playing = 0;
+global.track = 1;
+global.menu_playing = 1;
+
 collected = 0;
 
 intro_fade_in_index = 0;
@@ -63,13 +67,21 @@ snd_track_1_low_index = 0;
 snd_track_1_mid_index = 0;
 snd_track_1_snare_index = 0;
 
+global.snd_track_layer_0_index = 0;
+global.snd_track_layer_1_index = 0;
+global.snd_track_layer_2_index = 0;
+global.snd_track_layer_3_index = 0;
+global.snd_track_layer_4_index = 0;
+global.snd_track_layer_5_index = 0;
+global.snd_track_layer_6_index = 0;
+
 //audio_play_sound(snd_track_2, 1, true);
 
-snd_track_1_snare_index = audio_play_sound(snd_track_1_snare, 3, true);
+intro_index = audio_play_sound(snd_intro, 3, false);
 
 //intro_index = audio_play_sound(snd_intro, 10, false);
 
-room_goto(rm_lvl_01);
+room_goto(menu);
 </string>
           </argument>
         </arguments>
@@ -95,26 +107,47 @@ room_goto(rm_lvl_01);
             <string>///music logic
 
 //show_debug_message(audio_sound_get_track_position(intro_index));
-/*
-if((audio_sound_get_track_position(intro_index) &gt;= 1.2) &amp;&amp; (intro == 0))
-{
-    intro_fade_in_index = audio_play_sound(snd_intro_music_fade_in, 1, false);
-    intro = 1;
-}
-if(!audio_is_playing(intro_fade_in_index) &amp;&amp; (intro == 1))
-{
-    audio_play_sound(snd_intro_music, 1, true);
-    intro = 2;
-}
-*/
 
-if((collected == 1) &amp;&amp; (high_playing == 0))
+if(global.menu_playing == 1)
+{
+    if((audio_sound_get_track_position(intro_index) &gt;= 1.2) &amp;&amp; (intro == 0))
+    {
+        intro_fade_in_index = audio_play_sound(snd_intro_music_fade_in, 1, false);
+        intro = 1;
+    }
+    if(!audio_is_playing(intro_fade_in_index) &amp;&amp; (intro == 1))
+    {
+        audio_play_sound(snd_intro_music, 1, true);
+        intro = 2;
+    }
+}
+else
+{
+    if(global.playing == 0)
+    {
+        if(global.track == 1)
+        {
+            global.snd_track_layer_0_index = audio_play_sound(snd_track_1_snare, 1, true);
+        }
+        global.playing = 1;
+    }
+    
+    if((global.collected[0] == 1) &amp;&amp; (global.playing == 1))
+    {
+        global.snd_track_layer_1_index = audio_play_sound(snd_track_1_high, 2, true);
+        audio_sound_set_track_position(global.snd_track_layer_1_index, audio_sound_get_track_position(global.snd_track_layer_0_index));
+        global.playing = 2;
+    }
+}
+
+/*
+if((global.collected[0] == 1) &amp;&amp; (high_playing == 0))
 {
     snd_track_1_high_index = audio_play_sound(snd_track_1_high, 4, true);
     audio_sound_set_track_position(snd_track_1_high_index, audio_sound_get_track_position(snd_track_1_snare_index));
     high_playing = 1;
 }
-
+*/
 </string>
           </argument>
         </arguments>
