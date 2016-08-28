@@ -165,6 +165,7 @@ obj_map_01_back.image_angle+=obj_map_01_back.rsp;
 if (key_flip &amp;&amp; room == rm_lvl_01 &amp;&amp; place_meeting(x,y,obj_flip_map_01_front)) {
     with (obj_map_01) instance_destroy();
     with (obj_collect_high) instance_destroy();
+    with (obj_collect_01_mid) instance_destroy();
     with (obj_flip_map_01_front) instance_destroy();
     with (obj_record) sprite_index = spr_record_flip;
     obj_record.rsp = 0;

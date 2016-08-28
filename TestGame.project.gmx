@@ -26,21 +26,24 @@
       <sprite>sprites\spr_record</sprite>
       <sprite>sprites\spr_record_flip</sprite>
       <sprites name="Level1">
-        <sprite>sprites\spr_map_01_back</sprite>
-        <sprite>sprites\spr_map_01_back_flip</sprite>
         <sprite>sprites\spr_map_01</sprite>
         <sprite>sprites\spr_map_01_flip</sprite>
+        <sprite>sprites\spr_map_01_back</sprite>
+        <sprite>sprites\spr_map_01_back_flip</sprite>
       </sprites>
     </sprites>
     <sprites name="Collectables">
-      <sprite>sprites\spr_collect_01_01</sprite>
+      <sprites name="Level1">
+        <sprite>sprites\spr_collect_01_01</sprite>
+        <sprite>sprites\spr_collect_01_02</sprite>
+      </sprites>
     </sprites>
     <sprite>sprites\spr_flip</sprite>
     <sprite>sprites\spr_logo_pulse</sprite>
     <sprite>sprites\spr_play</sprite>
     <sprite>sprites\spr_levels</sprite>
-    <sprite>sprites\spr_music</sprite>
     <sprite>sprites\spr_credits_menu</sprite>
+    <sprite>sprites\spr_music</sprite>
     <sprite>sprites\spr_credits</sprite>
     <sprite>sprites\spr_quit</sprite>
     <sprite>sprites\spr_track_1</sprite>
@@ -70,6 +73,7 @@
         <object>objects\obj_map_01_back</object>
         <object>objects\obj_flip_map_01_front</object>
         <object>objects\obj_flip_map_01_back</object>
+        <object>objects\obj_collect_01_mid</object>
       </objects>
     </objects>
     <object>objects\obj_credits_menu</object>
