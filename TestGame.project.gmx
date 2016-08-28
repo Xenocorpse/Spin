@@ -34,6 +34,7 @@
       <sprite>sprites\spr_collect_01_01</sprite>
     </sprites>
     <sprite>sprites\spr_flip</sprite>
+    <sprite>sprites\spr_start</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_lvl</background>
@@ -47,9 +48,11 @@
     <object>objects\obj_music</object>
     <object>objects\obj_collect_high</object>
     <object>objects\obj_map_01_back</object>
+    <object>objects\obj_start</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\music</room>
+    <room>rooms\menu</room>
     <room>rooms\rm_lvl_01</room>
     <room>rooms\rm_lvl_01_back</room>
   </rooms>
