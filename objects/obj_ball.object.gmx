@@ -79,6 +79,17 @@ if(global.move)
     key_flip = keyboard_check(vk_space);
     move = key_left + key_right;
 }
+else
+{
+    if (keyboard_check_pressed(vk_space))
+    {
+        audio_stop_all();
+        room_goto(rm_lvl_02_front);
+        global.playing = 0;
+        global.move = true;
+        y = 132;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -149,6 +160,54 @@ if (room == rm_lvl_01_back &amp;&amp; instance_exists(obj_map_01_back)) {
 
 obj_map_01_back.image_angle+=obj_map_01_back.rsp;
 }
+
+if (place_meeting(x,y+vsp+(sign(vsp) * 3),obj_map_01)) {
+    while (!place_meeting(x,y+(3 * sign(vsp)),obj_map_01)) {
+        y+=(3 * sign(vsp));
+    }
+    
+    vsp = 0;
+}
+
+//Circular Collide
+if (room == rm_lvl_02_front &amp;&amp; instance_exists(obj_map_02)) {
+
+    obj_map_02.rsp = move * obj_map_02.spd;
+
+    if (place_meeting(x+(sign(obj_map_02.rsp) * rsp_mult),y,obj_map_02))
+    {
+        while (!place_meeting(x+(sign(obj_map_02.rsp) * rsp_mult),y,obj_map_02))
+        {
+            obj_map_02.image_angle += sign(obj_map_02.rsp) * rsp_mult;
+        }
+    
+        obj_map_02.rsp = 0;
+    }
+
+obj_map_02.image_angle+=obj_map_02.rsp;
+}
+
+//Flip Collide
+if (room == rm_lvl_02_back &amp;&amp; instance_exists(obj_map_02_back)) {
+
+    obj_map_01_back.rsp = move * obj_map_02_back.spd;
+
+    if (place_meeting(x+(sign(obj_map_02_back.rsp) * rsp_mult),y,obj_map_02_back))
+    {
+        while (!place_meeting(x+(sign(obj_map_02_back.rsp) * rsp_mult),y,obj_map_02_back))
+        {
+            obj_map_02_back.image_angle += sign(obj_map_02_back.rsp) * rsp_mult;
+        }
+    
+        obj_map_02_back.rsp = 0;
+    }
+
+obj_map_02_back.image_angle+=obj_map_02_back.rsp;
+}
+
+y+=vsp;
+
+rsp_mult = 3;
 </string>
           </argument>
         </arguments>
@@ -176,7 +235,7 @@ if (key_flip &amp;&amp; room == rm_lvl_01 &amp;&amp; place_meeting(x,y,obj_flip_
         vsp = 0;
     }
     with (obj_map_01) instance_destroy();
-    with (obj_collect_high) instance_destroy();
+    with (obj_collect_01_high) instance_destroy();
     with (obj_collect_01_mid) instance_destroy();
     with (obj_collect_01_low) instance_destroy();
     with (obj_flip_map_01_front) instance_destroy();

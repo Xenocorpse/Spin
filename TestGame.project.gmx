@@ -19,6 +19,7 @@
     <sound>sound\snd_track_2_bass</sound>
     <sound>sound\snd_track_2</sound>
     <sound>sound\snd_lvl_complete</sound>
+    <sound>sound\snd_track_3</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_ball</sprite>
@@ -45,6 +46,12 @@
         <sprite>sprites\spr_collect_01_02</sprite>
         <sprite>sprites\spr_collect_01_03</sprite>
       </sprites>
+      <sprites name="Level2">
+        <sprite>sprites\spr_collect_02_01</sprite>
+        <sprite>sprites\spr_collect_02_02</sprite>
+        <sprite>sprites\spr_collect_02_03</sprite>
+        <sprite>sprites\spr_collect_02_04</sprite>
+      </sprites>
     </sprites>
     <sprite>sprites\spr_flip</sprite>
     <sprites name="Menu">
@@ -57,6 +64,8 @@
       <sprite>sprites\spr_quit</sprite>
       <sprite>sprites\spr_quit_hov</sprite>
       <sprite>sprites\spr_track_1</sprite>
+      <sprite>sprites\spr_track_3</sprite>
+      <sprite>sprites\spr_track_3_hov</sprite>
       <sprite>sprites\spr_track1_hov</sprite>
       <sprite>sprites\spr_levels</sprite>
       <sprite>sprites\spr_levels_hov</sprite>
@@ -83,7 +92,7 @@
     <objects name="Maps">
       <objects name="Level1">
         <object>objects\obj_map_01</object>
-        <object>objects\obj_collect_high</object>
+        <object>objects\obj_collect_01_high</object>
         <object>objects\obj_map_01_back</object>
         <object>objects\obj_flip_map_01_front</object>
         <object>objects\obj_flip_map_01_back</object>
@@ -92,6 +101,13 @@
       </objects>
       <objects name="Level2">
         <object>objects\obj_map_02</object>
+        <object>objects\obj_collect_02_03</object>
+        <object>objects\obj_collect_02_02</object>
+        <object>objects\obj_collect_02_01</object>
+        <object>objects\obj_map_02_back</object>
+        <object>objects\obj_flip_map_02_front</object>
+        <object>objects\obj_flip_map_02_back</object>
+        <object>objects\obj_collect_02_04</object>
       </objects>
     </objects>
     <objects name="Menu">
@@ -100,6 +116,7 @@
       <object>objects\obj_credits_menu</object>
       <object>objects\obj_track_1</object>
       <object>objects\obj_track_2</object>
+      <object>objects\obj_track_3</object>
       <object>objects\obj_title</object>
       <object>objects\obj_play</object>
       <object>objects\obj_levels</object>
