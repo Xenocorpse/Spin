@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>audio_stop_all();
 global.snd_track_layer_0_index = audio_play_sound(snd_track_1, 1, true);
+global.menu_playing = 0;
+global.playing = 0;
 
 room_goto(rm_lvl_01);
 </string>
