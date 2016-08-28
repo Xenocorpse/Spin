@@ -83,6 +83,8 @@ room_goto(menu);
 
 global.collected[0] = 0;
 global.collected[1] = 0;
+global.collected[2] = 0;
+global.collected[3] = 0;
 </string>
           </argument>
         </arguments>
@@ -144,6 +146,13 @@ else
     {
         global.snd_track_layer_2_index = audio_play_sound(snd_track_1_mid, 2, true);
         audio_sound_set_track_position(global.snd_track_layer_2_index, audio_sound_get_track_position(global.snd_track_layer_0_index));
+        global.playing = 2;
+    }
+    
+    if((global.collected[0] == 3) &amp;&amp; (global.playing == 1))
+    {
+        global.snd_track_layer_3_index = audio_play_sound(snd_track_1_low, 2, true);
+        audio_sound_set_track_position(global.snd_track_layer_3_index, audio_sound_get_track_position(global.snd_track_layer_0_index));
         global.playing = 2;
     }
 }

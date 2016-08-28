@@ -36,6 +36,7 @@
       <sprites name="Level1">
         <sprite>sprites\spr_collect_01_01</sprite>
         <sprite>sprites\spr_collect_01_02</sprite>
+        <sprite>sprites\spr_collect_01_03</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_flip</sprite>
@@ -74,6 +75,7 @@
         <object>objects\obj_flip_map_01_front</object>
         <object>objects\obj_flip_map_01_back</object>
         <object>objects\obj_collect_01_mid</object>
+        <object>objects\obj_collect_01_low</object>
       </objects>
     </objects>
     <object>objects\obj_credits_menu</object>
