@@ -4,13 +4,13 @@
   <xorig>300</xorig>
   <yorigin>300</yorigin>
   <colkind>0</colkind>
-  <coltolerance>119</coltolerance>
+  <coltolerance>0</coltolerance>
   <sepmasks>-1</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>294</bbox_left>
-  <bbox_right>380</bbox_right>
-  <bbox_top>170</bbox_top>
-  <bbox_bottom>415</bbox_bottom>
+  <bbox_left>226</bbox_left>
+  <bbox_right>412</bbox_right>
+  <bbox_top>160</bbox_top>
+  <bbox_bottom>386</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>

@@ -30,7 +30,6 @@
         <sprite>sprites\spr_map_01_back_flip</sprite>
         <sprite>sprites\spr_map_01</sprite>
         <sprite>sprites\spr_map_01_flip</sprite>
-        <sprite>sprites\spr_lvl_01_flip</sprite>
       </sprites>
     </sprites>
     <sprites name="Collectables">
