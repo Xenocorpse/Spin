@@ -162,9 +162,10 @@ obj_map_01_back.image_angle+=obj_map_01_back.rsp;
             <kind>1</kind>
             <string>///Flip Disc
 
-if (key_flip &amp;&amp; room == rm_lvl_01) {
+if (key_flip &amp;&amp; room == rm_lvl_01 &amp;&amp; place_meeting(x,y,obj_flip_map_01_front)) {
     with (obj_map_01) instance_destroy();
     with (obj_collect_high) instance_destroy();
+    with (obj_flip_map_01_front) instance_destroy();
     with (obj_record) sprite_index = spr_record_flip;
     obj_record.rsp = 0;
 }
@@ -174,11 +175,13 @@ if (obj_record.image_index == 8 &amp;&amp; obj_record.sprite_index == spr_record
     room_goto(rm_lvl_01_back);
 }
 
-if (key_flip &amp;&amp; room == rm_lvl_01_back) {
+if (key_flip &amp;&amp; room == rm_lvl_01_back &amp;&amp; place_meeting(x,y,obj_flip_map_01_back)) {
     with (obj_map_01_back) instance_destroy();
+    with (obj_flip_map_01_back) instance_destroy();
     with (obj_record) sprite_index = spr_record_flip;
     obj_record.rsp = 0;
 }
+
 if (obj_record.image_index == 8 &amp;&amp; obj_record.sprite_index == spr_record_flip &amp;&amp; room == rm_lvl_01_back) {
     room_goto(rm_lvl_01);
 }

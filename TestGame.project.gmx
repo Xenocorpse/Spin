@@ -23,12 +23,15 @@
     <sprite>sprites\spr_ball</sprite>
     <sprites name="Record and Maps">
       <sprite>sprites\spr_map</sprite>
-      <sprite>sprites\spr_map_01_back</sprite>
-      <sprite>sprites\spr_map_01</sprite>
-      <sprite>sprites\spr_lvl_01_flip</sprite>
-      <sprite>sprites\spr_outer</sprite>
       <sprite>sprites\spr_record</sprite>
       <sprite>sprites\spr_record_flip</sprite>
+      <sprites name="Level1">
+        <sprite>sprites\spr_map_01_back</sprite>
+        <sprite>sprites\spr_map_01_back_flip</sprite>
+        <sprite>sprites\spr_map_01</sprite>
+        <sprite>sprites\spr_map_01_flip</sprite>
+        <sprite>sprites\spr_lvl_01_flip</sprite>
+      </sprites>
     </sprites>
     <sprites name="Collectables">
       <sprite>sprites\spr_collect_01_01</sprite>
@@ -48,12 +51,18 @@
     <object>objects\obj_record</object>
     <object>objects\par_solid</object>
     <object>objects\obj_ball</object>
-    <object>objects\obj_map_01</object>
     <object>objects\obj_music</object>
-    <object>objects\obj_collect_high</object>
-    <object>objects\obj_map_01_back</object>
     <object>objects\obj_play</object>
     <object>objects\obj_title</object>
+    <objects name="Maps">
+      <objects name="Level1">
+        <object>objects\obj_map_01</object>
+        <object>objects\obj_collect_high</object>
+        <object>objects\obj_map_01_back</object>
+        <object>objects\obj_flip_map_01_front</object>
+        <object>objects\obj_flip_map_01_back</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\music</room>
