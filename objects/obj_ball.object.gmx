@@ -87,7 +87,7 @@ else
         room_goto(rm_lvl_02_front);
         global.playing = 0;
         global.move = true;
-        y = 132;
+        y = 134;
     }
 }
 </string>
@@ -205,6 +205,14 @@ if (room == rm_lvl_02_back &amp;&amp; instance_exists(obj_map_02_back)) {
 obj_map_02_back.image_angle+=obj_map_02_back.rsp;
 }
 
+if (place_meeting(x,y+vsp+(sign(vsp) * 3),obj_map_02)) {
+    while (!place_meeting(x,y+(3 * sign(vsp)),obj_map_02)) {
+        y+=(3 * sign(vsp));
+    }
+    
+    vsp = 0;
+}
+
 y+=vsp;
 
 rsp_mult = 3;
@@ -260,6 +268,39 @@ if (key_flip &amp;&amp; room == rm_lvl_01_back &amp;&amp; place_meeting(x,y,obj_
 
 if (obj_record.image_index == 8 &amp;&amp; obj_record.sprite_index == spr_record_flip &amp;&amp; room == rm_lvl_01_back) {
     room_goto(rm_lvl_01);
+}
+
+if (key_flip &amp;&amp; room == rm_lvl_02 &amp;&amp; place_meeting(x,y,obj_flip_map_02_front)) {
+    if (obj_record.sprite_index == spr_record_flip) {
+        vsp = 0;
+    }
+    with (obj_map_02) instance_destroy();
+    with (obj_collect_02_01) instance_destroy();
+    with (obj_collect_02_02) instance_destroy();
+    with (obj_collect_02_03) instance_destroy();
+    with (obj_flip_map_02_front) instance_destroy();
+    with (obj_record) sprite_index = spr_record_flip;
+    obj_record.rsp = 0;
+}
+
+if (obj_record.image_index == 8 &amp;&amp; obj_record.sprite_index == spr_record_flip &amp;&amp; room == rm_lvl_02)
+{
+    room_goto(rm_lvl_02_back);
+}
+
+if (key_flip &amp;&amp; room == rm_lvl_02_back &amp;&amp; place_meeting(x,y,obj_flip_map_02_back)) {
+    if (obj_record.sprite_index == spr_record_flip) {
+        vsp = 0;
+    }
+    with (obj_map_02_back) instance_destroy();
+    with (obj_collect_02_04) instance_destroy();
+    with (obj_flip_map_02_back) instance_destroy();
+    with (obj_record) sprite_index = spr_record_flip;
+    obj_record.rsp = 0;
+}
+
+if (obj_record.image_index == 8 &amp;&amp; obj_record.sprite_index == spr_record_flip &amp;&amp; room == rm_lvl_02_back) {
+    room_goto(rm_lvl_02);
 }
 </string>
           </argument>
