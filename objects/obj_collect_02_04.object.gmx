@@ -39,7 +39,7 @@ if (global.collected[4] == 1)
 
 //global.collected[1] = 1;
 
-image_angle=obj_map_02.image_angle;
+image_angle=obj_map_02_back.image_angle;
 </string>
           </argument>
         </arguments>

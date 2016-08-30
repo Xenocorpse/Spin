@@ -81,7 +81,7 @@ if(global.move)
 }
 else
 {
-    if (keyboard_check_pressed(vk_space))
+    if (keyboard_check_pressed(vk_space) &amp;&amp; room == rm_lvl_01)
     {
         audio_stop_all();
         room_goto(rm_lvl_02_front);
@@ -115,6 +115,14 @@ else
 
 if (place_meeting(x,y+vsp+(sign(vsp) * 3),obj_map_01)) {
     while (!place_meeting(x,y+(3 * sign(vsp)),obj_map_01)) {
+        y+=(3 * sign(vsp));
+    }
+    
+    vsp = 0;
+}
+
+if (place_meeting(x,y+vsp+(sign(vsp) * 3),obj_map_02)) {
+    while (!place_meeting(x,y+(3 * sign(vsp)),obj_map_02)) {
         y+=(3 * sign(vsp));
     }
     
@@ -190,7 +198,7 @@ obj_map_02.image_angle+=obj_map_02.rsp;
 //Flip Collide
 if (room == rm_lvl_02_back &amp;&amp; instance_exists(obj_map_02_back)) {
 
-    obj_map_01_back.rsp = move * obj_map_02_back.spd;
+    obj_map_02_back.rsp = move * obj_map_02_back.spd;
 
     if (place_meeting(x+(sign(obj_map_02_back.rsp) * rsp_mult),y,obj_map_02_back))
     {
@@ -204,18 +212,6 @@ if (room == rm_lvl_02_back &amp;&amp; instance_exists(obj_map_02_back)) {
 
 obj_map_02_back.image_angle+=obj_map_02_back.rsp;
 }
-
-if (place_meeting(x,y+vsp+(sign(vsp) * 3),obj_map_02)) {
-    while (!place_meeting(x,y+(3 * sign(vsp)),obj_map_02)) {
-        y+=(3 * sign(vsp));
-    }
-    
-    vsp = 0;
-}
-
-y+=vsp;
-
-rsp_mult = 3;
 </string>
           </argument>
         </arguments>
@@ -270,7 +266,7 @@ if (obj_record.image_index == 8 &amp;&amp; obj_record.sprite_index == spr_record
     room_goto(rm_lvl_01);
 }
 
-if (key_flip &amp;&amp; room == rm_lvl_02 &amp;&amp; place_meeting(x,y,obj_flip_map_02_front)) {
+if (key_flip &amp;&amp; room == rm_lvl_02_front &amp;&amp; place_meeting(x,y,obj_flip_map_02_front)) {
     if (obj_record.sprite_index == spr_record_flip) {
         vsp = 0;
     }
@@ -283,7 +279,7 @@ if (key_flip &amp;&amp; room == rm_lvl_02 &amp;&amp; place_meeting(x,y,obj_flip_
     obj_record.rsp = 0;
 }
 
-if (obj_record.image_index == 8 &amp;&amp; obj_record.sprite_index == spr_record_flip &amp;&amp; room == rm_lvl_02)
+if (obj_record.image_index == 8 &amp;&amp; obj_record.sprite_index == spr_record_flip &amp;&amp; room == rm_lvl_02_front)
 {
     room_goto(rm_lvl_02_back);
 }
@@ -300,7 +296,7 @@ if (key_flip &amp;&amp; room == rm_lvl_02_back &amp;&amp; place_meeting(x,y,obj_
 }
 
 if (obj_record.image_index == 8 &amp;&amp; obj_record.sprite_index == spr_record_flip &amp;&amp; room == rm_lvl_02_back) {
-    room_goto(rm_lvl_02);
+    room_goto(rm_lvl_02_front);
 }
 </string>
           </argument>

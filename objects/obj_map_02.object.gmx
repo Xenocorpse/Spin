@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>global.collide = false;
-image_angle=global.rotation;
 
 startX = x;
 startY = y;
